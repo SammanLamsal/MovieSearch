@@ -1,0 +1,89 @@
+body {
+  background: #101010;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.searchOptions {
+  line-height: 2;
+  margin: 0;
+  color: white;
+  text-align: right;
+}
+
+.searchTxt {
+  text-align: center;
+}
+
+.information {
+  color: #c0c0c4;
+  text-align: center;
+}
+
+.film {
+  margin: 0 auto;
+  position: absolute;
+  width: 100px;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.searchBox {
+  padding-bottom: 15px;
+}
+
+.search2 {
+  padding-right: 5%;
+  text-align: right;
+}
+
+input[type="searchOptionsTxt"] {
+  text-align: center;
+  width: 200px;
+}
+
+.mainSearch {
+  text-align: center;
+  color: #ffffff;
+}
+
+#list {
+  color: white;
+}
+
+.toBeCentered {
+  text-align: center;
+  color: white;
+}
+
+#movieTitle {
+  padding-top: 100px;
+  margin: 0;
+}
+
+#plotSummaryHeading {
+  padding-top: 25px;
+  margin: 0;
+}
+
+.greyInfo {
+  color: #c0c0c4;
+}
+
+#plotSummary {
+  color: #c0c0c4;
+}
+
+#h1Tag {
+  padding-top: 50px;
+  margin: 0;
+}
+
+#numOfResultsParagraph {
+  color: #c0c0c4;
+}
