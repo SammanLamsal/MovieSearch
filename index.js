@@ -57,7 +57,7 @@ function search(movieTitle) {
     searchOptionsTxt = document.getElementById("searchOptionsTxt").value;
     var encodedTitle = encodeURI(movieTitle);
 
-    var apiURL = `http://www.omdbapi.com/` + `?s=${encodedTitle}` + `&type=movie`+ `&y=${searchOptionsTxt}`+ `&page=${pageNumber}` + `&apikey=${apiKey}`;
+    var apiURL = `https://www.omdbapi.com/` + `?s=${encodedTitle}` + `&type=movie`+ `&y=${searchOptionsTxt}`+ `&page=${pageNumber}` + `&apikey=${apiKey}`;
 
     fetch(apiURL)
         .then(response => response.json())

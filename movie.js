@@ -14,7 +14,7 @@ window.onload = function() {
 async function search() {
     var encodedTitle = encodeURI(storedMovieTitle);
 
-    var apiURL = `http://www.omdbapi.com/` + `?t=${encodedTitle}` + `&type=movie`+ `&plot=full` + `&apikey=${apiKey}`;
+    var apiURL = `https://www.omdbapi.com/` + `?t=${encodedTitle}` + `&type=movie`+ `&plot=full` + `&apikey=${apiKey}`;
     console.log(apiURL);
         
     var movieDetails = await fetch(apiURL)
