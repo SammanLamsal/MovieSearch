@@ -32,9 +32,9 @@ function showResults(data) {
                 sessionStorage.setItem("movie", data.Search[item].Title);
             }
         }
+        numOfResults = Math.ceil(data.totalResults/10);
         numOfResultsParagraph.innerHTML = `Page ${pageNumber} of ${numOfResults} (${data.totalResults} results total)`;
     }
-        numOfResults = Math.ceil(data.totalResults/10);
         h1Tag.id = "h1Tag";
         h1Tag.innerHTML = "Results";
         addNavigationButtons();
