@@ -88,3 +88,7 @@ input[type="searchOptionsTxt"] {
 #numOfResultsParagraph {
   color: #c0c0c4;
 }
+
+li {
+  list-style-type: none;
+}
