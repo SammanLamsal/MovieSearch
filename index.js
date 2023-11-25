@@ -16,32 +16,34 @@ function showResults(data) {
     var orderedList = document.getElementById("list");
     let toMovieDetails;
     var temp;
-    
-    for (let item in data.Search) {
-        toMovieDetails = document.createElement("a");
-        toMovieDetails.href = "movieDetails.html";
-        var listElement = document.createElement("li");
-        listElement.appendChild(toMovieDetails);
-        toMovieDetails.innerHTML = data.Search[item].Title;
-        orderedList.appendChild(listElement);
-        toMovieDetails.onclick = function() {
-            sessionStorage.setItem("movie", data.Search[item].Title);
-        }
+
+    if(data.Response == "False") {
+        numOfResultsParagraph.innerHTML = "Movie not found!";
     }
-    
-    numOfResults = Math.ceil(data.totalResults/10);
-    h1Tag.id = "h1Tag";
-    h1Tag.innerHTML = "Results";
-    addNavigationButtons();
+    else{
+        for (let item in data.Search) {
+            toMovieDetails = document.createElement("a");
+            toMovieDetails.href = "movieDetails.html";
+            var listElement = document.createElement("li");
+            listElement.appendChild(toMovieDetails);
+            toMovieDetails.innerHTML = data.Search[item].Title;
+            orderedList.appendChild(listElement);
+            toMovieDetails.onclick = function() {
+                sessionStorage.setItem("movie", data.Search[item].Title);
+            }
+        }
+        numOfResultsParagraph.innerHTML = `Page ${pageNumber} of ${numOfResults} (${data.totalResults} results total)`;
+    }
+        numOfResults = Math.ceil(data.totalResults/10);
+        h1Tag.id = "h1Tag";
+        h1Tag.innerHTML = "Results";
+        addNavigationButtons();
 
-    numOfResultsParagraph.id = "numOfResultsParagraph";
-    list.insertAdjacentElement("afterend", numOfResultsParagraph);
+        numOfResultsParagraph.id = "numOfResultsParagraph";
+        list.insertAdjacentElement("afterend", numOfResultsParagraph);
 
-    temp = document.getElementById("searchButton");
-    temp.insertAdjacentElement("afterend", h1Tag);
-    
-    numOfResultsParagraph.innerHTML = `Page ${pageNumber} of ${numOfResults} (${data.totalResults} results total)`;
-
+        temp = document.getElementById("searchButton");
+        temp.insertAdjacentElement("afterend", h1Tag);
 
 }
 
@@ -55,6 +57,7 @@ button.onclick = function () {
 
 function search(movieTitle) {
     searchOptionsTxt = document.getElementById("searchOptionsTxt").value;
+    console.log(searchOptionsTxt)
     var encodedTitle = encodeURI(movieTitle);
 
     var apiURL = `https://www.omdbapi.com/` + `?s=${encodedTitle}` + `&type=movie`+ `&y=${searchOptionsTxt}`+ `&page=${pageNumber}` + `&apikey=${apiKey}`;
